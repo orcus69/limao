@@ -1,0 +1,83 @@
+name: caracolibras
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  web: ^0.5.1
+  cupertino_icons: ^1.0.2
+  flutter_modular: ^6.3.2
+  mobx: ^2.3.0
+  flutter_mobx: ^2.2.0+1
+  animate_do: ^3.1.2
+  dio: ^5.4.0
+  easy_localization: ^3.0.2
+  easy_localization_loader: ^2.0.1
+  easy_rich_text: ^2.0.0
+  flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.9
+  hive: ^2.2.3
+  intl: ^0.18.1
+  path_provider: ^2.1.1
+  universal_platform: ^1.0.0+1
+  easy_debounce: ^2.0.3
+  image_picker: ^1.0.7
+  dartz: ^0.10.1
+  share_plus: ^6.3.1
+  screenshot: ^2.1.0
+  mask_text_input_formatter: ^2.7.0
+  brasil_fields: ^1.4.5
+  flutter_masked_text2: ^0.9.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
+  flutter_lints: ^3.0.1
+  mobx_codegen: ^2.6.0
+  build_runner: ^2.4.7
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/caracol-icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/caracol-icon.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/images/caracol-icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/caracol-icon.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/images/icons/
+    - assets/translation/
+    - assets/fonts/Manrope/
+    
+
+  fonts:
+    - family: regular
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-Regular.ttf
+    - family: medium
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-Medium.ttf
+    - family: bold
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-Bold.ttf
