@@ -1,14 +1,19 @@
 import 'package:caracolibras/app/core/service/modular/widget_module.dart';
+import 'package:caracolibras/app/modules/home/domain/repositories/get_content_repository.dart';
 import 'package:caracolibras/app/modules/home/domain/repositories/get_modules_repository.dart';
 import 'package:caracolibras/app/modules/home/domain/repositories/ipost_expense_repository.dart';
+import 'package:caracolibras/app/modules/home/domain/usecases/get_content_usecase.dart';
 import 'package:caracolibras/app/modules/home/domain/usecases/get_modules_usecase.dart';
 import 'package:caracolibras/app/modules/home/domain/usecases/post_expense_usecase.dart';
+import 'package:caracolibras/app/modules/home/external/get_content_datasource.dart';
 import 'package:caracolibras/app/modules/home/external/get_modules_datasource.dart';
 import 'package:caracolibras/app/modules/home/external/model/module_model.dart';
 import 'package:caracolibras/app/modules/home/external/post_expense_datasource.dart';
+import 'package:caracolibras/app/modules/home/infra/datasource/get_content_datasource.dart';
 import 'package:caracolibras/app/modules/home/infra/datasource/get_modules_datasource.dart';
 import 'package:caracolibras/app/modules/home/infra/datasource/ipost_expense_datasource.dart';
-import 'package:caracolibras/app/modules/home/infra/repositories/g_modules_repository.dart';
+import 'package:caracolibras/app/modules/home/infra/repositories/get_content_repository.dart';
+import 'package:caracolibras/app/modules/home/infra/repositories/get_modules_repository.dart';
 import 'package:caracolibras/app/modules/home/infra/repositories/post_expense_repository.dart';
 import 'package:caracolibras/app/modules/home/presenter/home_page.dart';
 import 'package:caracolibras/app/modules/home/presenter/home_store.dart';
@@ -21,6 +26,7 @@ class HomeModule extends WidgetModule {
   void binds(i) {
     i.add<HomeStore>(HomeStore.new);
 
+    //GetModules
     i.addSingleton<IGetModulesDataSource>(
       GetModulesDatasourceImpl.new,
     );
@@ -30,28 +36,18 @@ class HomeModule extends WidgetModule {
     i.addSingleton<IGetModulesUsecase>(
       IGetModulesUsecaseImpl.new,
     );
+    
+    //GetContentModule
+    i.addSingleton<IGetContentModuleDataSource>(
+      GetContentModuleDatasourceImpl.new,
+    );
+    i.addSingleton<IGetContentModuleRepository>(
+      GetContentModuleRepositoryImpl.new,
+    );
+    i.addSingleton<IGetContentModuleUsecase>(
+      IGetContentModuleUsecaseImpl.new,
+    );
 
-    //PostDailyExpense
-    i.addSingleton<IPostExpenseDataSource>(
-      PostExpenseDataSourceImpl.new,
-    );
-    i.addSingleton<IPostModulesRepository>(
-      PostExpenseRepositoryImpl.new,
-    );
-    i.addSingleton<IPostExpenseUsecase>(
-      PostExpenseUsecaseImpl.new,
-    );
-
-    //PostRemoveDailyExpense
-    i.addSingleton<IPostRemoveExpenseByIdDataSource>(
-      PostRemoveServiceByIdDataSourceImpl.new,
-    );
-    i.addSingleton<IPostRemoveExpenseByIdRepository>(
-      PostRemoveExpenseByIdRepositoryImpl.new,
-    );
-    i.addSingleton<IPostRemoveExpenseByIdUsecase>(
-      PostRemoveExpenseByIdUsecaseImpl.new,
-    );
   }
 
   @override

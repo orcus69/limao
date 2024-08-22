@@ -7,7 +7,6 @@ import 'package:caracolibras/app/core/store/auth/auth_store.dart';
 import 'package:caracolibras/app/core/theme/them_custom.dart';
 import 'package:caracolibras/app/modules/home/external/model/module_model.dart';
 import 'package:caracolibras/app/modules/home/presenter/home_store.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -36,7 +35,7 @@ class _ModuleViewState extends State<ModuleView> {
     theme = Theme.of(authStore.appContext!).extension<ThemeCustom>()!;
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      //TODO: Buscar conteúdo do módulo pelo id
+      store.getContentModule(widget.module.id!);
     });
   }
 
@@ -60,6 +59,8 @@ class _ModuleViewState extends State<ModuleView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _buildHeader(),
+                      const SizedBox(height: 20),
+                      _buildList()
                     ],
                   ),
                 ),
@@ -95,8 +96,49 @@ class _ModuleViewState extends State<ModuleView> {
             text: widget.module.title!,
             color: theme.textColor,
             fontSize: AppFontSize.fz07,
+            maxLines: 2,
             fontWeight: 'bold'),
       ],
     );
+  }
+
+  Widget _buildList() {
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: AppConst.sidePadding),
+        child: Observer(builder: (context) {
+          if (store.contentModule.isEmpty) {
+            return Center(
+              child: AppText(
+                text: 'Nenhuma conteúdo encontrado',
+                color: theme.textColor,
+                fontSize: AppFontSize.fz06,
+              ),
+            );
+          }
+
+          return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: store.contentModule
+                  .map(
+                    (cnt) => InkWell(
+                      // onTap: () {
+                      //   Modular.to.pushNamed('/view', arguments: module);
+                      // },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: theme.fillColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        margin: EdgeInsets.only(bottom: 10),
+                        padding: EdgeInsets.all(AppConst.sidePadding),
+                        child: AppText(
+                            text: '${cnt.title}',
+                            color: theme.textColor,
+                            fontSize: AppFontSize.fz06),
+                      ),
+                    ),
+                  )
+                  .toList());
+        }));
   }
 }

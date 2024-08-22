@@ -41,12 +41,36 @@ mixin _$HomeStore on _HomeStoreBase, Store {
     });
   }
 
+  late final _$contentModuleAtom =
+      Atom(name: '_HomeStoreBase.contentModule', context: context);
+
+  @override
+  ObservableList<ContentModuleModel> get contentModule {
+    _$contentModuleAtom.reportRead();
+    return super.contentModule;
+  }
+
+  @override
+  set contentModule(ObservableList<ContentModuleModel> value) {
+    _$contentModuleAtom.reportWrite(value, super.contentModule, () {
+      super.contentModule = value;
+    });
+  }
+
   late final _$getModulesAsyncAction =
       AsyncAction('_HomeStoreBase.getModules', context: context);
 
   @override
   Future<void> getModules() {
     return _$getModulesAsyncAction.run(() => super.getModules());
+  }
+
+  late final _$getContentModuleAsyncAction =
+      AsyncAction('_HomeStoreBase.getContentModule', context: context);
+
+  @override
+  Future<void> getContentModule(int id) {
+    return _$getContentModuleAsyncAction.run(() => super.getContentModule(id));
   }
 
   late final _$addExpenseAsyncAction =
@@ -77,7 +101,8 @@ mixin _$HomeStore on _HomeStoreBase, Store {
   String toString() {
     return '''
 loading: ${loading},
-modulesLbr: ${modulesLbr}
+modulesLbr: ${modulesLbr},
+contentModule: ${contentModule}
     ''';
   }
 }
