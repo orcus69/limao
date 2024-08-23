@@ -1,4 +1,5 @@
 import 'package:caracolibras/app/app_widget_store.dart';
+import 'package:caracolibras/app/core/components/no_result_card.dart';
 import 'package:caracolibras/app/core/components/svg_asset.dart';
 import 'package:caracolibras/app/core/components/text.dart';
 import 'package:caracolibras/app/core/constants/const.dart';
@@ -80,6 +81,9 @@ class _ModuleViewState extends State<ModuleView> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
           onTap: () {
             Modular.to.pop();
           },
@@ -92,12 +96,15 @@ class _ModuleViewState extends State<ModuleView> {
             ),
           ),
         ),
-        AppText(
-            text: widget.module.title!,
-            color: theme.textColor,
-            fontSize: AppFontSize.fz07,
-            maxLines: 2,
-            fontWeight: 'bold'),
+        SizedBox(
+          width: 300,
+          child: AppText(
+              text: widget.module.title!,
+              color: theme.textColor,
+              fontSize: AppFontSize.fz07,
+              maxLines: 1,
+              fontWeight: 'bold'),
+        ),
       ],
     );
   }
@@ -107,13 +114,8 @@ class _ModuleViewState extends State<ModuleView> {
         padding: EdgeInsets.symmetric(horizontal: AppConst.sidePadding),
         child: Observer(builder: (context) {
           if (store.contentModule.isEmpty) {
-            return Center(
-              child: AppText(
-                text: 'Nenhuma conteúdo encontrado',
-                color: theme.textColor,
-                fontSize: AppFontSize.fz06,
-              ),
-            );
+            return const NoResultCard(
+                message: '*:(*\nNenhum conteúdo\nencontrado');
           }
 
           return Column(
@@ -121,20 +123,35 @@ class _ModuleViewState extends State<ModuleView> {
               children: store.contentModule
                   .map(
                     (cnt) => InkWell(
-                      // onTap: () {
-                      //   Modular.to.pushNamed('/view', arguments: module);
-                      // },
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        if (cnt.content!.isEmpty) return;
+                        Modular.to.pushNamed('/view/content', arguments: cnt);
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           color: theme.fillColor,
                           borderRadius: BorderRadius.circular(10),
+                          border:
+                              Border.all(color: theme.borderColor!, width: 1.5),
                         ),
                         margin: EdgeInsets.only(bottom: 10),
                         padding: EdgeInsets.all(AppConst.sidePadding),
-                        child: AppText(
-                            text: '${cnt.title}',
-                            color: theme.textColor,
-                            fontSize: AppFontSize.fz06),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            AppText(
+                                text: '${cnt.title}',
+                                color: theme.textColor,
+                                fontSize: AppFontSize.fz06),
+                            AppText(
+                                text: '${cnt.content!.length}',
+                                color: theme.textColor,
+                                fontSize: AppFontSize.fz06),
+                          ],
+                        ),
                       ),
                     ),
                   )

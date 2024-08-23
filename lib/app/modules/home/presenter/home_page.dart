@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:caracolibras/app/app_widget_store.dart';
 import 'package:caracolibras/app/core/components/bottom_button.dart';
 import 'package:caracolibras/app/core/components/new_textfield.dart';
+import 'package:caracolibras/app/core/components/no_result_card.dart';
 import 'package:caracolibras/app/core/components/svg_asset.dart';
 import 'package:caracolibras/app/core/components/text.dart';
 import 'package:caracolibras/app/core/constants/colors.dart';
@@ -108,6 +109,9 @@ class _HomePageState extends State<HomePage>
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
           child: Container(
             padding: EdgeInsets.all(AppConst.sidePadding),
             child: AppSvgAsset(
@@ -138,13 +142,8 @@ class _HomePageState extends State<HomePage>
           //   );
           // }
           if (store.modulesLbr.isEmpty) {
-            return Center(
-              child: AppText(
-                text: 'Nenhuma módulo encontrado',
-                color: theme.textColor,
-                fontSize: AppFontSize.fz06,
-              ),
-            );
+            return const NoResultCard(
+                message: '*:(*\nNenhum módulo\nencontrado');
           }
 
           return Column(
@@ -152,6 +151,9 @@ class _HomePageState extends State<HomePage>
               children: store.modulesLbr
                   .map(
                     (module) => InkWell(
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
                       onTap: () {
                         Modular.to.pushNamed('/view', arguments: module);
                       },
@@ -159,6 +161,8 @@ class _HomePageState extends State<HomePage>
                         decoration: BoxDecoration(
                           color: theme.fillColor,
                           borderRadius: BorderRadius.circular(10),
+                          border:
+                              Border.all(color: theme.borderColor!, width: 1.5),
                         ),
                         margin: EdgeInsets.only(bottom: 10),
                         child: Column(
@@ -166,6 +170,7 @@ class _HomePageState extends State<HomePage>
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
                                   decoration: BoxDecoration(
@@ -173,19 +178,63 @@ class _HomePageState extends State<HomePage>
                                         int.parse(module.category!['color'])),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  padding: EdgeInsets.all(10),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10,
+                                      horizontal: AppConst.sidePadding),
                                   margin: EdgeInsets.symmetric(
                                       vertical: AppConst.sidePadding,
                                       horizontal: AppConst.sidePadding),
                                   child: AppText(
                                       text: '${module.category!['name']}',
                                       color: theme.textColor,
+                                      fontWeight: 'bold',
                                       fontSize: AppFontSize.fz05),
                                 ),
-                                AppText(
-                                    text: '${module.date}',
-                                    color: theme.textColor,
-                                    fontSize: AppFontSize.fz05),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      border: Border(
+                                        left: BorderSide(
+                                            color: theme.borderColor!,
+                                            width: 2),
+                                        bottom: BorderSide(
+                                            color: theme.borderColor!,
+                                            width: 2),
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(10),
+                                      )),
+                                  padding: EdgeInsets.only(
+                                      top: 8,
+                                      bottom: 8,
+                                      right: AppConst.sidePadding,
+                                      left: AppConst.sidePadding),
+                                  child: Column(
+                                    children: [
+                                      //month
+                                      AppText(
+                                          text: DateFormat('MMM')
+                                              .format(module.date!)
+                                              .toUpperCase(),
+                                          color: theme.textColor,
+                                          fontWeight: 'medium',
+                                          fontSize: AppFontSize.fz02),
+                                      //day
+                                      AppText(
+                                          text: DateFormat('dd')
+                                              .format(module.date!),
+                                          color: theme.textColor,
+                                          fontWeight: 'bold',
+                                          fontSize: AppFontSize.fz06),
+                                      //year
+                                      AppText(
+                                          text: DateFormat('yyyy')
+                                              .format(module.date!),
+                                          color: theme.textColor,
+                                          fontWeight: 'medium',
+                                          fontSize: AppFontSize.fz02),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                             const SizedBox(height: 10),
@@ -197,16 +246,18 @@ class _HomePageState extends State<HomePage>
                                   color: theme.textColor,
                                   fontSize: AppFontSize.fz06),
                             ),
-                            const SizedBox(height: 10),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: AppConst.sidePadding,
-                                  horizontal: AppConst.sidePadding),
-                              child: AppText(
-                                  text: '${module.tags!.join(', ')}',
-                                  color: theme.textColor,
-                                  fontSize: AppFontSize.fz06),
-                            ),
+                            if (module.tags!.isNotEmpty)
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: AppConst.sidePadding,
+                                    horizontal: AppConst.sidePadding),
+                                child: AppText(
+                                    text: '${module.tags!.join(', ')}',
+                                    color: theme.textColor,
+                                    fontSize: AppFontSize.fz06),
+                              ),
+                            if (module.tags!.isEmpty)
+                              const SizedBox(height: 20),
                           ],
                         ),
                       ),

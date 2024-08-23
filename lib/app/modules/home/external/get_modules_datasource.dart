@@ -72,7 +72,7 @@ class GetModulesDatasourceImpl implements IGetModulesDataSource {
         .toList();
 
     if (modules.isEmpty) {
-      return Left(Failure("Nenhum gasto encontrado"));
+      return Left(Failure("Nenhum módulo encontrado"));
     }
 
     return Right(modules as List<ModuleModel>);
