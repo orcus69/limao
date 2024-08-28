@@ -26,157 +26,157 @@ class GetContentModuleDatasourceImpl implements IGetContentModuleDataSource {
             'src': 'assets/images/modules/1/a.jpeg',
             'type': 'image',
             'title': 'A',
-            'description': 'Descrição da imagem A',
+            'description': 'Sinal da letra A',
           },
           {
             'src': 'assets/images/modules/1/b.jpeg',
             'type': 'image',
             'title': 'B',
-            'description': 'Descrição da imagem B',
+            'description': 'Sinal da letra B',
           },
           {
             'src': 'assets/images/modules/1/c.jpeg',
             'type': 'image',
             'title': 'C',
-            'description': 'Descrição da imagem C',
+            'description': 'Sinal da letra C',
           },
           {
             'src': 'assets/images/modules/1/d.jpeg',
             'type': 'image',
             'title': 'D',
-            'description': 'Descrição da imagem D',
+            'description': 'Sinal da letra D',
           },
           {
             'src': 'assets/images/modules/1/e.jpeg',
             'type': 'image',
             'title': 'E',
-            'description': 'Descrição da imagem E',
+            'description': 'Sinal da letra E',
           },
           {
             'src': 'assets/images/modules/1/f.jpeg',
             'type': 'image',
             'title': 'F',
-            'description': 'Descrição da imagem F',
+            'description': 'Sinal da letra F',
           },
           {
             'src': 'assets/images/modules/1/g.jpeg',
             'type': 'image',
             'title': 'G',
-            'description': 'Descrição da imagem G',
+            'description': 'Sinal da letra G',
           },
           {
-            'src': 'assets/images/modules//1/h.gif',
+            'src': 'assets/images/modules/1/h.gif',
             'type': 'gif',
             'title': 'H',
-            'description': 'Descrição da imagem H',
+            'description': 'Sinal da letra H',
           },
           {
             'src': 'assets/images/modules/1/i.jpeg',
             'type': 'image',
             'title': 'I',
-            'description': 'Descrição da imagem I',
+            'description': 'Sinal da letra I',
           },
           {
             'src': 'assets/images/modules/1/j.gif',
             'type': 'gif',
             'title': 'J',
-            'description': 'Descrição da imagem J',
+            'description': 'Sinal da letra J',
           },
           {
             'src': 'assets/images/modules/1/k.gif',
             'type': 'gif',
             'title': 'K',
-            'description': 'Descrição da imagem K',
+            'description': 'Sinal da letra K',
           },
           {
             'src': 'assets/images/modules/1/l.jpeg',
             'type': 'image',
             'title': 'L',
-            'description': 'Descrição da imagem L',
+            'description': 'Sinal da letra L',
           },
           {
             'src': 'assets/images/modules/1/m.jpeg',
             'type': 'image',
             'title': 'M',
-            'description': 'Descrição da imagem M',
+            'description': 'Sinal da letra M',
           },
           {
             'src': 'assets/images/modules/1/n.jpeg',
             'type': 'image',
             'title': 'N',
-            'description': 'Descrição da imagem N',
+            'description': 'Sinal da letra N',
           },
           {
             'src': 'assets/images/modules/1/o.jpeg',
             'type': 'image',
             'title': 'O',
-            'description': 'Descrição da imagem O',
+            'description': 'Sinal da letra O',
           },
           {
             'src': 'assets/images/modules/1/p.jpeg',
             'type': 'image',
             'title': 'P',
-            'description': 'Descrição da imagem P',
+            'description': 'Sinal da letra P',
           },
           {
             'src': 'assets/images/modules/1/q.jpeg',
             'type': 'image',
             'title': 'Q',
-            'description': 'Descrição da imagem Q',
+            'description': 'Sinal da letra Q',
           },
           {
             'src': 'assets/images/modules/1/r.jpeg',
             'type': 'image',
             'title': 'R',
-            'description': 'Descrição da imagem R',
+            'description': 'Sinal da letra R',
           },
           {
             'src': 'assets/images/modules/1/s.jpeg',
             'type': 'image',
             'title': 'S',
-            'description': 'Descrição da imagem S',
+            'description': 'Sinal da letra S',
           },
           {
             'src': 'assets/images/modules/1/t.jpeg',
             'type': 'image',
             'title': 'T',
-            'description': 'Descrição da imagem T',
+            'description': 'Sinal da letra T',
           },
           {
             'src': 'assets/images/modules/1/u.jpeg',
             'type': 'image',
             'title': 'U',
-            'description': 'Descrição da imagem U',
+            'description': 'Sinal da letra U',
           },
           {
             'src': 'assets/images/modules/1/v.jpeg',
             'type': 'image',
             'title': 'V',
-            'description': 'Descrição da imagem V',
+            'description': 'Sinal da letra V',
           },
           {
             'src': 'assets/images/modules/1/w.jpeg',
             'type': 'image',
             'title': 'W',
-            'description': 'Descrição da imagem W',
+            'description': 'Sinal da letra W',
           },
           {
             'src': 'assets/images/modules/1/x.gif',
             'type': 'gif',
             'title': 'X',
-            'description': 'Descrição da imagem X',
+            'description': 'Sinal da letra X',
           },
           {
             'src': 'assets/images/modules/1/y.gif',
             'type': 'gif',
             'title': 'Y',
-            'description': 'Descrição da imagem Y',
+            'description': 'Sinal da letra Y',
           },
           {
             'src': 'assets/images/modules/1/z.gif',
             'type': 'gif',
             'title': 'Z',
-            'description': 'Descrição da imagem Z',
+            'description': 'Sinal da letra Z',
           }
         ]
       },
@@ -189,8 +189,9 @@ class GetContentModuleDatasourceImpl implements IGetContentModuleDataSource {
             'src': 'assets/images/modules/1/alfabeto.mp4',
             'type': 'video',
             'title': 'Alfabeto',
-            'description': 'Descrição do vídeo Alfabeto',
-          },]
+            'description': 'Alfabeto completo',
+          },
+        ]
       },
       '3': {
         'id': 3,
@@ -215,7 +216,7 @@ class GetContentModuleDatasourceImpl implements IGetContentModuleDataSource {
             'title': 'Feijão',
             'description': 'Sinal de feijão',
           }
-          ]
+        ]
       },
       '4': {
         'id': 4,
@@ -227,12 +228,14 @@ class GetContentModuleDatasourceImpl implements IGetContentModuleDataSource {
             'type': 'gif',
             'title': 'Água',
             'description': 'Sinal de água',
-          },{
+          },
+          {
             'src': 'assets/images/modules/2/suco.gif',
             'type': 'gif',
             'title': 'suco',
             'description': 'Sinal de suco',
-          }]
+          }
+        ]
       },
       '5': {
         'id': 5,
@@ -280,6 +283,125 @@ class GetContentModuleDatasourceImpl implements IGetContentModuleDataSource {
             'type': 'video',
             'title': 'Sábado',
             'description': 'Aprenda a sinalizar *Sábado* em Libras.',
+          },
+        ]
+      },
+      '6': {
+        'id': 6,
+        'module_id': 4,
+        'title': 'Cores',
+        'content': [
+          {
+            'src': 'assets/images/modules/4/amarelo.mp4',
+            'type': 'video',
+            'title': 'Amarelo',
+            'description': 'Sinal de amarelo',
+          },
+          {
+            'src': 'assets/images/modules/4/azul.mp4',
+            'type': 'video',
+            'title': 'Azul',
+            'description':
+                'Sinal de azul, configuração inicial de mão na letra "A" e movimento na forma da letra "Z", finalizando com a letra "L"',
+          },
+          {
+            'src': 'assets/images/modules/4/verde.mp4',
+            'type': 'video',
+            'title': 'Verde',
+            'description':
+                'Sinal de verde, configuração de mão na letra "V" com o movimento',
+          },
+          {
+            'src': 'assets/images/modules/4/vermelho.mp4',
+            'type': 'video',
+            'title': 'Vermelho',
+            'description': 'Sinal de vermelho',
+          },
+          {
+            'src': 'assets/images/modules/4/branco.mp4',
+            'type': 'video',
+            'title': 'Branco',
+            'description': 'Sinal de branco',
+          },
+          {
+            'src': 'assets/images/modules/4/preto.mp4',
+            'type': 'video',
+            'title': 'Preto',
+            'description': 'Sinal de preto',
+          },
+          {
+            'src': 'assets/images/modules/4/cinza.mp4',
+            'type': 'video',
+            'title': 'Cinza',
+            'description':
+                'Sinal de cinza, configuração de mão na letra "C" com o movimento',
+          },
+          {
+            'src': 'assets/images/modules/4/marrom.mp4',
+            'type': 'video',
+            'title': 'Marrom',
+            'description':
+                'Sinal de marrom, configuração de mão na letra "M" com o movimento',
+          },
+          {
+            'src': 'assets/images/modules/4/laranja.mp4',
+            'type': 'video',
+            'title': 'Laranja',
+            'description': 'Sinal de laranja',
+          },
+          {
+            'src': 'assets/images/modules/4/roxo.mp4',
+            'type': 'video',
+            'title': 'Roxo',
+            'description':
+                'Sinal de roxo, configuração de mão na letra "R" com o movimento',
+          },
+          {
+            'src': 'assets/images/modules/4/rosa.mp4',
+            'type': 'video',
+            'title': 'Rosa',
+            'description':
+                'Sinal de rosa, configuração de mão na letra "R" com o movimento no rosto',
+          },
+        ]
+      },
+      '7': {
+        'id': 7,
+        'module_id': 5,
+        'title': 'Saudações',
+        'content': [
+          {
+            'src': 'assets/images/modules/5/oi.mp4',
+            'type': 'video',
+            'title': 'Oi',
+            'description':
+                'Sinal de oi, configuração de mão na letra "O" mais o "I"',
+          },
+          {
+            'src': 'assets/images/modules/5/adeus.mp4',
+            'type': 'video',
+            'title': 'Adeus',
+            'description': 'Sinal de adeus',
+          },
+          {
+            'src': 'assets/images/modules/5/bom_dia.mp4',
+            'type': 'video',
+            'title': 'Bom dia',
+            'description':
+                'Sinal de bom dia, segunda parte da sinalização representando o movimento do sol no céu',
+          },
+          {
+            'src': 'assets/images/modules/5/boa_tarde.mp4',
+            'type': 'video',
+            'title': 'Boa tarde',
+            'description': 'Sinal de boa tarde',
+          },
+          {
+            'src': 'assets/images/modules/5/boa_noite.mp4',
+            'type': 'video',
+            'title': 'Boa noite',
+            'description':
+                'Sinal de boa noite, segunda parte da sinalização representando o por do sol',
           },
         ]
       },

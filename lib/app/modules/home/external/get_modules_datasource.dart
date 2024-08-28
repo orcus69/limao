@@ -19,14 +19,14 @@ class GetModulesDatasourceImpl implements IGetModulesDataSource {
         'id': 1,
         'category': {
           'id': 1,
-          'name': 'Basicos',
+          'name': 'Básicos',
           'color': '0xFF2679B5',
         },
         'title': 'Alfabeto',
         'date': '2024-08-25',
         'tags': ['Alfabeto', 'Letras'],
         'reference': 'lamp',
-    },
+      },
       '2': {
         'id': 2,
         'category': {
@@ -38,7 +38,7 @@ class GetModulesDatasourceImpl implements IGetModulesDataSource {
         'date': '2024-08-21',
         'tags': ['Comida', 'Bebidas', 'Alimentos'],
         'reference': 'lamp',
-    },
+      },
       '3': {
         'id': 3,
         'category': {
@@ -48,9 +48,36 @@ class GetModulesDatasourceImpl implements IGetModulesDataSource {
         },
         'title': 'Dias da Semana e Meses',
         'date': '2024-08-25',
-        'tags': ['Dias da Semana', 'Meses',],
+        'tags': [
+          'Dias da Semana',
+          'Meses',
+        ],
         'reference': 'lamp',
-    }
+      },
+      '4': {
+        'id': 4,
+        'category': {
+          'id': 1,
+          'name': 'Básicos',
+          'color': '0xFF2679B5',
+        },
+        'title': 'Cores',
+        'date': '2024-08-26',
+        'tags': ['Cor'],
+        'reference': 'lamp',
+      },
+      '5': {
+        'id': 5,
+        'category': {
+          'id': 1,
+          'name': 'Básicos',
+          'color': '0xFF2679B5',
+        },
+        'title': 'Saudações',
+        'date': '2024-08-26',
+        'tags': ['Oi', 'Cumprimentos'],
+        'reference': 'lamp',
+      },
     };
 
     if (data.isEmpty) {

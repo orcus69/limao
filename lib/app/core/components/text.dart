@@ -46,11 +46,13 @@ class AppText extends StatelessWidget {
       child: EasyRichText(
         text,
         textAlign: textAlign ?? TextAlign.start,
-        maxLines: maxLines,
-        overflow: TextOverflow.ellipsis,
+        maxLines: maxLines ?? null, // Permitir quebra de linha
+        overflow:
+            TextOverflow.visible, // Permitir que o texto ocupe várias linhas
         defaultStyle: textStyle(
             color: color ?? theme.textColor,
-            overflow: TextOverflow.ellipsis,
+            overflow: TextOverflow
+                .visible, // Permitir que o texto ocupe várias linhas
             fontSize: fontSize,
             fontStyle: fontStyle,
             height: height,
@@ -60,10 +62,6 @@ class AppText extends StatelessWidget {
             decorationThickness: decorationThickness,
             letterSpacing: letterSpacing),
         patternList: [
-          //
-          //#gfdgfgfgfgfgg#dsdsds
-          //#gfdgdfgdfg#
-          //dsdsdsd{Afttdfgdf65656dfdf}}fhgh{frgfgfg}dfd
           EasyRichTextPattern(
             targetString: '(\\*)(.*?)(\\*)',
             matchBuilder: (BuildContext? context, RegExpMatch? match) {
@@ -75,12 +73,10 @@ class AppText extends StatelessWidget {
                     color: color,
                     height: height,
                     fontSize: fontSize,
-                    overflow: TextOverflow.ellipsis,
+                    overflow: TextOverflow
+                        .visible, // Permitir que o texto ocupe várias linhas
                     fontWeight: "bold",
                     decoration: decoration,
-
-                    // decorationColor: decorationColor,
-                    // decorationThickness: decorationThickness,
                     letterSpacing: letterSpacing),
               );
             },
