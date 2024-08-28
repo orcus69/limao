@@ -22,7 +22,7 @@ class AppImageAsset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/images/$image',
+      '$image',
       width: imageW,
       height: imageH,
       fit: fit,

@@ -5,6 +5,7 @@ import 'package:caracolibras/app/modules/home/domain/usecases/get_content_usecas
 import 'package:caracolibras/app/modules/home/domain/usecases/get_modules_usecase.dart';
 import 'package:caracolibras/app/modules/home/external/model/content_module_model.dart';
 import 'package:caracolibras/app/modules/home/external/model/module_model.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -18,17 +19,32 @@ abstract class _HomeStoreBase with Store {
   final IGetModulesUsecase getModulesUsecase;
   final IGetContentModuleUsecase getContentModuleUsecase;
 
-  _HomeStoreBase(
-      {required this.getModulesUsecase,
-      required this.getContentModuleUsecase,}) {}
+  final ScrollController scrollController = ScrollController();
+
+  _HomeStoreBase({
+    required this.getModulesUsecase,
+    required this.getContentModuleUsecase,
+  }) {}
 
   @observable
   bool loading = false;
   @observable
   ObservableList<ModuleModel> modulesLbr = ObservableList<ModuleModel>();
   @observable
-  ObservableList<ContentModuleModel> contentModule = ObservableList<ContentModuleModel>();
-
+  ObservableList<ContentModuleModel> contentModule =
+      ObservableList<ContentModuleModel>();
+  void jumpToPreviousContent() {
+    var mediaQuery = MediaQuery.of(appStore.appContext!);
+    scrollController.jumpTo(
+      scrollController.offset - mediaQuery.size.height,
+    );
+  }
+  void jumpToNextContent() {
+    var mediaQuery = MediaQuery.of(appStore.appContext!);
+    scrollController.jumpTo(
+      scrollController.offset + mediaQuery.size.height,
+    );
+  }
 
   @action
   Future<void> getModules() async {
@@ -53,7 +69,7 @@ abstract class _HomeStoreBase with Store {
   }
 
   @action
-  Future<void> getContentModule(int id) async{
+  Future<void> getContentModule(int id) async {
     contentModule.clear();
     var result = await getContentModuleUsecase(id);
 

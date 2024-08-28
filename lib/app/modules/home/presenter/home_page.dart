@@ -59,6 +59,14 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: theme.backgroundColor,
+      appBar: AppBar(
+          backgroundColor: theme.backgroundColor,
+          elevation: 0,
+          title: AppText(
+              text: 'Módulos',
+              color: theme.textColor,
+              fontSize: AppFontSize.fz07,
+              fontWeight: 'bold')),
       floatingActionButton: Observer(
         builder: (context) {
           return Container(
@@ -86,11 +94,7 @@ class _HomePageState extends State<HomePage>
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildHeader(),
-                      const SizedBox(height: 20),
-                      _buildList()
-                    ],
+                    children: [const SizedBox(height: 20), _buildList()],
                   ),
                 ),
               ),

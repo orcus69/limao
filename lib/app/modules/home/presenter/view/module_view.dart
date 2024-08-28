@@ -49,6 +49,33 @@ class _ModuleViewState extends State<ModuleView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: theme.backgroundColor,
+      appBar: AppBar(
+        backgroundColor: theme.backgroundColor,
+        elevation: 0,
+        centerTitle: false,
+        leading: InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          onTap: () {
+            Modular.to.pop();
+          },
+          child: Container(
+            padding: EdgeInsets.all(AppConst.sidePadding),
+            child: AppSvgAsset(
+              image: 'left.svg',
+              color: theme.textColor,
+              imageH: 18,
+            ),
+          ),
+        ),
+        title: AppText(
+            text: widget.module.title!,
+            color: theme.textColor,
+            fontSize: AppFontSize.fz07,
+            maxLines: 1,
+            fontWeight: 'bold'),
+      ),
       body: SafeArea(
         child: LayoutBuilder(builder: (_, __) {
           return Column(
@@ -58,11 +85,7 @@ class _ModuleViewState extends State<ModuleView> {
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildHeader(),
-                      const SizedBox(height: 20),
-                      _buildList()
-                    ],
+                    children: [const SizedBox(height: 20), _buildList()],
                   ),
                 ),
               ),
