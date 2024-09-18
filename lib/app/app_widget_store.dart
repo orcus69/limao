@@ -11,10 +11,8 @@ abstract class _AppWidgetStoreBase with Store {
   @action
   setContext(BuildContext value) => appContext = value;
 
-
   @observable
   bool isDark = true;
-  
 
   @action
   void changeTheme() {

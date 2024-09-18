@@ -47,7 +47,7 @@ class _AppWidgetState extends State<AppWidget> {
         localizationsDelegates: context.localizationDelegates,
         scrollBehavior: BehaviorRemoveScrollGlow(),
         scaffoldMessengerKey: NavigationService.scaffoldMessengerKey,
-        title: 'Despesas - Caracol',
+        title: 'LIMÃO',
         themeMode: appStore.isDark ? ThemeMode.dark : ThemeMode.light,
         theme: AppThemeLight().getTheme(),
         darkTheme: AppThemeDark().getTheme(),
